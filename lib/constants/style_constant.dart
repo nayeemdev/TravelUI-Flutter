@@ -4,7 +4,7 @@ import 'package:travel_ui/constants/color_constant.dart';
 
 //Style for Section Title
 var titleStyle = GoogleFonts.inter(
-  fontWeight: FontWeight.w500,
+  fontWeight: FontWeight.w900,
   color: titleColor,
   fontSize: 16,
 );

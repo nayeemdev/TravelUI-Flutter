@@ -48,7 +48,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               icon: _selectedIndex == 1
                   ? new Icon(Icons.ad_units)
                   : new Icon(Icons.ad_units_outlined),
-              label: 'Order'),
+              label: 'Booking'),
           BottomNavigationBarItem(
               icon: _selectedIndex == 2
                   ? new Icon(Icons.featured_play_list_rounded)

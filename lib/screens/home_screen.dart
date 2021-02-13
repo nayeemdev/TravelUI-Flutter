@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:travel_ui/constants/color_constant.dart';
 import 'package:travel_ui/constants/style_constant.dart';
@@ -39,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Container(
         child: ListView(
           physics: ClampingScrollPhysics(),
-          children: [
+          children: <Widget>[
             Padding(
               padding: EdgeInsets.only(left: 16, bottom: 16),
               child: Text(
@@ -109,7 +110,168 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 ],
               ),
-            )
+            ),
+            //  Service Section
+            Padding(
+              padding: EdgeInsets.only(left: 16, top: 16, bottom: 16),
+              child: Text(
+                'Let\'s Booking!',
+                style: titleStyle,
+              ),
+            ),
+            Container(
+              height: 144,
+              margin: EdgeInsets.only(left: 16, right: 16),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(right: 8),
+                          padding: EdgeInsets.only(left: 16),
+                          height: 64,
+                          decoration: BoxDecoration(
+                            color: fillColor,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: borderColor, width: 1),
+                          ),
+                          child: Row(
+                            children: [
+                              Text('plane'),
+                              Padding(
+                                padding: EdgeInsets.only(left: 16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Flight',
+                                      style: serviceTileStyle,
+                                    ),
+                                    Text(
+                                      'Feel Freedom',
+                                      style: popularSubTileStyle,
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(right: 8),
+                          padding: EdgeInsets.only(left: 16),
+                          height: 64,
+                          decoration: BoxDecoration(
+                            color: fillColor,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: borderColor, width: 1),
+                          ),
+                          child: Row(
+                            children: [
+                              Text('plane'),
+                              Padding(
+                                padding: EdgeInsets.only(left: 16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Trains',
+                                      style: serviceTileStyle,
+                                    ),
+                                    Text(
+                                      'Intercity',
+                                      style: popularSubTileStyle,
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 16,),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(right: 8),
+                          padding: EdgeInsets.only(left: 16),
+                          height: 64,
+                          decoration: BoxDecoration(
+                            color: fillColor,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: borderColor, width: 1),
+                          ),
+                          child: Row(
+                            children: [
+                              Text('plane'),
+                              Padding(
+                                padding: EdgeInsets.only(left: 16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Hotel',
+                                      style: serviceTileStyle,
+                                    ),
+                                    Text(
+                                      'Let\'s Check in',
+                                      style: popularSubTileStyle,
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(right: 8),
+                          padding: EdgeInsets.only(left: 16),
+                          height: 64,
+                          decoration: BoxDecoration(
+                            color: fillColor,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: borderColor, width: 1),
+                          ),
+                          child: Row(
+                            children: [
+                              Text('plane'),
+                              Padding(
+                                padding: EdgeInsets.only(left: 16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Car Rental',
+                                      style: serviceTileStyle,
+                                    ),
+                                    Text(
+                                      'Around Your City',
+                                      style: popularSubTileStyle,
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
