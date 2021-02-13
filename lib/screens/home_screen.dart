@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:travel_ui/constants/color_constant.dart';
 import 'package:travel_ui/constants/style_constant.dart';
+import 'package:travel_ui/models/blog_model.dart';
 import 'package:travel_ui/models/popular_destination_model.dart';
 import 'package:travel_ui/models/slider_model.dart';
 import 'package:travel_ui/widgets/bottom_navigation.dart';
@@ -27,21 +29,27 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Color(0xFF2E7D32),
+    ));
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.light,
         backgroundColor: backgroundColor,
         title: Text(
           'TravelUi',
-          style: TextStyle(color: Colors.blue[400]),
+          style: TextStyle(color: Colors.blue[400], fontFamily: ),
         ),
         elevation: 0,
       ),
       backgroundColor: backgroundColor,
       bottomNavigationBar: BottomNavigation(),
       body: Container(
+        padding: EdgeInsets.only(bottom: 16),
         child: ListView(
           physics: ClampingScrollPhysics(),
           children: <Widget>[
+            //Sliders Section
             Padding(
               padding: EdgeInsets.only(left: 16, bottom: 16),
               child: Text(
@@ -112,7 +120,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            //  Service Section
+
+            //  Booking Section
             Padding(
               padding: EdgeInsets.only(left: 16, top: 16, bottom: 16),
               child: Text(
@@ -139,7 +148,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           child: Row(
                             children: [
-                              Text('plane'),
+                              Image(
+                                image: AssetImage('assets/icons/plane.png'),
+                                height: 30,
+                                width: 30,
+                              ),
                               Padding(
                                 padding: EdgeInsets.only(left: 16),
                                 child: Column(
@@ -173,7 +186,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           child: Row(
                             children: [
-                              Text('plane'),
+                              Image(
+                                image: AssetImage('assets/icons/train.png'),
+                                height: 30,
+                                width: 30,
+                              ),
                               Padding(
                                 padding: EdgeInsets.only(left: 16),
                                 child: Column(
@@ -214,7 +231,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           child: Row(
                             children: [
-                              Text('plane'),
+                              Image(
+                                image: AssetImage('assets/icons/hotel.png'),
+                                height: 30,
+                                width: 30,
+                              ),
                               Padding(
                                 padding: EdgeInsets.only(left: 16),
                                 child: Column(
@@ -248,7 +269,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           child: Row(
                             children: [
-                              Text('plane'),
+                              Image(
+                                image: AssetImage('assets/icons/car.png'),
+                                height: 30,
+                                width: 30,
+                              ),
                               Padding(
                                 padding: EdgeInsets.only(left: 16),
                                 child: Column(
@@ -275,6 +300,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
+
+            //Destination Section
             Padding(
               padding: EdgeInsets.only(left: 16, bottom: 16, top: 16),
               child: Text(
@@ -326,6 +353,72 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       );
                     }),
+              ),
+            ),
+
+            //Blog Section
+            Padding(
+              padding: EdgeInsets.only(left: 16, bottom: 16, top: 16),
+              child: Text(
+                'Travel Blog!',
+                style: titleStyle,
+              ),
+            ),
+            Container(
+              height: 180,
+              child: ListView.builder(
+                padding: EdgeInsets.only(left: 16),
+                itemCount: blogs.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: EdgeInsets.only(right: 16),
+                    width: 220,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Stack(
+                          children: [
+                            Container(
+                              height: 104,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(blogs[index].image),
+                                    fit: BoxFit.cover),
+                              ),
+                            ),
+                            Positioned(
+                              child: Text(
+                                blogs[index].name,
+                                style: TextStyle(
+                                  backgroundColor: Colors.white,
+                                ),
+                              ),
+                              bottom: 8,
+                              left: 8,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          blogs[index].content,
+                          maxLines: 3,
+                          style: blogContentStyle,
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          blogs[index].place,
+                          style: blogPlaceStyle,
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                scrollDirection: Axis.horizontal,
               ),
             )
           ],

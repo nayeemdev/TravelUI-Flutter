@@ -1,13 +1,13 @@
 class BlogModel {
   String name;
-  String description;
+  String content;
   String place;
   String image;
 
-  BlogModel(this.name, this.description, this.place, this.image );
+  BlogModel(this.name, this.content, this.place, this.image );
 }
 
-List<BlogModel> blogs = blogsData.map((item) => BlogModel(item['name'], item['description'], item['place'], item['image'])).toList();
+List<BlogModel> blogs = blogsData.map((item) => BlogModel(item['name'], item['content'], item['place'], item['image'])).toList();
 
 var blogsData = [
   {
