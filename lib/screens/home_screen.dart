@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:travel_ui/constants/color_constant.dart';
 import 'package:travel_ui/constants/style_constant.dart';
+import 'package:travel_ui/models/popular_destination_model.dart';
 import 'package:travel_ui/models/slider_model.dart';
 import 'package:travel_ui/widgets/bottom_navigation.dart';
 
@@ -196,7 +197,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 16,),
+                  SizedBox(
+                    height: 16,
+                  ),
                   Row(
                     children: [
                       Expanded(
@@ -272,6 +275,59 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
+            Padding(
+              padding: EdgeInsets.only(left: 16, bottom: 16, top: 16),
+              child: Text(
+                'Popular Destination!',
+                style: titleStyle,
+              ),
+            ),
+            Container(
+              height: 130,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 16, left: 16),
+                child: ListView.builder(
+                    itemCount: destinations.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Card(
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Container(
+                          height: 130,
+                          width: 110,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: borderColor, width: 1),
+                          ),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 10,
+                              ),
+                              CircleAvatar(
+                                radius: 35.0,
+                                backgroundImage:
+                                    NetworkImage(destinations[index].image),
+                                backgroundColor: Colors.transparent,
+                              ),
+                              Text(
+                                destinations[index].name,
+                                style: popularTileStyle,
+                              ),
+                              Text(
+                                destinations[index].country,
+                                style: popularSubTileStyle,
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }),
+              ),
+            )
           ],
         ),
       ),
