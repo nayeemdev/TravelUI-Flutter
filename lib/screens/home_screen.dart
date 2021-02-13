@@ -37,8 +37,8 @@ class _HomeScreenState extends State<HomeScreen> {
         brightness: Brightness.light,
         backgroundColor: backgroundColor,
         title: Text(
-          'TravelUi',
-          style: TextStyle(color: Colors.blue[400], fontFamily: ),
+          'Travel Ui',
+          style: TextStyle(color: Colors.blue[400], fontWeight: FontWeight.w900, fontStyle: FontStyle.italic),
         ),
         elevation: 0,
       ),
